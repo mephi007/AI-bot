@@ -74,6 +74,42 @@ def player_move(board):
 	while move not in '1 2 3 4 5 6 7 8 9'.split() or not free_space(board, int(move)):
 		move = raw_input(' what is your next move?')
 		return int(move)
+def random_moves(board , moves):
+	possibleMoves = []
+	for i in moves:
+		if free_space(board , i):
+			possibleMoves.append(i)
+
+	if len(possibleMoves) != 0:
+		return random.choice(possibleMoves)
+
+	else:
+		return None
+
+def getComputerMove(board , computerLetter):
+	if computerLetter == 'X'
+		playerLetter = 'O'
+	else:
+		playerLetter = 'X'
+# computer checking if it can win in one move
+	for i in range(1,10):
+		copy = board_copy(board)
+		if free_space(copy, i):
+			makeMove(copy , computerLetter, i)
+			if winner(copy , computerLetter):
+				return i 
+# #computer checking if player can win in one move
+# 	for i in range(1,10):
+# 		copy = board_copy(board)
+# 		if free_space(copy , i):
+# 			makeMove(copy, playerLetter , i)
+# 			if winner(copy,playerLetter):
+# 				return i
+# #check available space in corner
+# 	move = random_moves(board , [ 1,3,7,9])
+# 	if move != None:
+# 		return i
+
 print(first_move())
 
 
