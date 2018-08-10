@@ -59,9 +59,16 @@ def winner(board, letter):
 				(board[9]==letter and board[5]==letter and board[1]==letter)
 				)
 
-#print(first_move())
+def board_copy(board):
+
+	dupeboard = []
+
+	for i in board:
+		dupeboard.append(i)
+
+print(first_move())
 
 
-print(winner(['O','O','O','','','','','','',''] ,'O'))
+print(winner(['','O','O','O','','','','','',''] ,'O'))
 
 print(playAgain())
