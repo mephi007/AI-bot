@@ -41,4 +41,12 @@ def first_move():
 	else:
 		return 'computer'
 
+def playAgain():
+	print('do you want to play again? yes or no?')
+	return raw_input().lower().startswith('y')
+
+def makeMove(board , letter , move):
+	board[move] = letter
+
 print(first_move())
+print(playAgain())
