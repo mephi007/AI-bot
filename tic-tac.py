@@ -1,5 +1,5 @@
 import random #for toss
-board=['','','','','','','','','','']
+#board=['','','','','','','','','','']
 def drawboard(board):
 	print(' |   |')
 
@@ -12,7 +12,7 @@ def drawboard(board):
 	print(' '+board[3]+ '|' +'   '+ board[2]+ '|' + board[1])
 	print(' |   |')
 
-drawboard(board)
+# drawboard(board)
 
 #taking input from user
 
@@ -28,7 +28,7 @@ def input_player():
 	else:
 		return['O', 'X']
 
-print(input_player())
+# print(input_player())
 
 def first_move():
 	
@@ -46,7 +46,7 @@ def playAgain():
 	return raw_input().lower().startswith('y')
 
 def makeMove(board , letter , move):
-	board[move] = letter
+	board[move]=letter
 
 def winner(board, letter):
 	return ((board[7]==letter and board[8]==letter and board[9]==letter )
@@ -67,7 +67,9 @@ def board_copy(board):
 		dupeboard.append(i)
 
 def free_space(board , move):
-	return board[move]==' '
+	return board[move]==''
+
+#print(free_space(['','X','O','O','','','','','',''] ,3))
 
 def player_move(board):
 	move = ' '
@@ -87,7 +89,7 @@ def random_moves(board , moves):
 		return None
 
 def getComputerMove(board , computerLetter):
-	if computerLetter == 'X'
+	if computerLetter == 'X':
 		playerLetter = 'O'
 	else:
 		playerLetter = 'X'
@@ -113,10 +115,67 @@ def getComputerMove(board , computerLetter):
 	move = random_moves(board , [5])
 	if move != None:
 		return 5
-		
-print(first_move())
+
+#else check for side spaces
+	return random_moves(board , [2,4,6,8])
+
+def full_board(board):
+	for i in range(1,10):
+		if free_space(board, i):
+			return False
+	return True
+
+print(' WELCOME TO TIC TAC TOE!')
+
+while True:
+
+	board = [' ']*10
+	playerLetter, computerLetter = input_player()
+	turn = first_move()
+	print ('the '+turn+' will go first')
+	game_on = True
+	while game_on:
+		if turn == 'player':
+			drawboard(board)
+			move = player_move(board)
+			makeMove(board , playerLetter , move)
+
+			if winner(board, playerLetter):
+				drawboard(board)
+				print('player wins!')
+				game_on = False
+			else:
+				if full_board(board):
+					drawboard(board)
+					print('tie!')
+					break
+				else:
+					turn = 'computer'
+
+		else:
+			move = getComputerMove(board,computerLetter)
+			makeMove(board , computerLetter , move)
+
+			if winner(board , computerLetter):
+				drawboard(board)
+				print('computer wins')
+				game_on = False
+			else: 
+				if full_board(board):
+					drawboard(board)
+					print('tie!')
+					break
+				else:
+					turn = 'player'
+
+	if not playAgain():
+		break
 
 
-print(winner(['','O','O','O','','','','','',''] ,'O'))
 
-print(playAgain())
+# print(first_move())
+
+
+# print(winner(['','O','O','O','','','','','',''] ,'O'))
+
+# print(playAgain())
