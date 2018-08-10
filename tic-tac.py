@@ -98,13 +98,13 @@ def getComputerMove(board , computerLetter):
 			makeMove(copy , computerLetter, i)
 			if winner(copy , computerLetter):
 				return i 
-# #computer checking if player can win in one move
-# 	for i in range(1,10):
-# 		copy = board_copy(board)
-# 		if free_space(copy , i):
-# 			makeMove(copy, playerLetter , i)
-# 			if winner(copy,playerLetter):
-# 				return i
+#computer checking if player can win in one move
+	for i in range(1,10):
+		copy = board_copy(board)
+		if free_space(copy , i):
+			makeMove(copy, playerLetter , i)
+			if winner(copy,playerLetter):
+				return i
 # #check available space in corner
 # 	move = random_moves(board , [ 1,3,7,9])
 # 	if move != None:
