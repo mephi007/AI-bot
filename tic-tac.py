@@ -105,10 +105,10 @@ def getComputerMove(board , computerLetter):
 			makeMove(copy, playerLetter , i)
 			if winner(copy,playerLetter):
 				return i
-# #check available space in corner
-# 	move = random_moves(board , [ 1,3,7,9])
-# 	if move != None:
-# 		return i
+#check available space in corner
+	move = random_moves(board , [ 1,3,7,9])
+	if move != None:
+		return i
 
 print(first_move())
 
