@@ -66,6 +66,14 @@ def board_copy(board):
 	for i in board:
 		dupeboard.append(i)
 
+def free_space(board , move):
+	return board[move]==' '
+
+def player_move(board):
+	move = ' '
+	while move not in '1 2 3 4 5 6 7 8 9'.split() or not free_space(board, int(move)):
+		move = raw_input(' what is your next move?')
+		return int(move)
 print(first_move())
 
 
