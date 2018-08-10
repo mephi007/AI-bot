@@ -109,7 +109,11 @@ def getComputerMove(board , computerLetter):
 	move = random_moves(board , [ 1,3,7,9])
 	if move != None:
 		return i
-
+#check available space in center
+	move = random_moves(board , [5])
+	if move != None:
+		return 5
+		
 print(first_move())
 
 
